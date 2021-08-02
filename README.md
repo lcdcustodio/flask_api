@@ -22,7 +22,7 @@ Install version using the following commands:
 Next, initialize the database through:
 
 ```
-python db_init.py
+python src/db_init.py
 ```
 
 In order to load colors.json into database
@@ -30,7 +30,7 @@ In order to load colors.json into database
 Launch the server:
 ===========================
 ```
-    python wsgi.py
+    python src/wsgi.py
 ```
 
 RESTful API Documentation
