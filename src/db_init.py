@@ -3,7 +3,7 @@ from flask import json
 from app import db, create_app
 from app.color import Color
 
-COLORS_JSON = json.load(open("colors.json"))
+COLORS_JSON = json.load(open("src/colors.json"))
 
 app = create_app()
 app.app_context().push()
