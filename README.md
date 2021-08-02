@@ -12,24 +12,26 @@ Installation
 
 Install version using the following commands:
 
-.. code-block:: shell
 
+```
     git clone https://github.com/lcdcustodio/flask_api.git
     cd flask_api_development
     pip install -r requirements.txt (to get the dependencies)
+```    
 
 Next, initialize the database through:
 
 ```
 python db_init.py
 ```
+
 In order to load colors.json into database
 
 Launch the server:
 ===========================
-.. code-block:: shell
-
+```
     python wsgi.py
+```
 
 RESTful API Documentation
 =========================
@@ -40,12 +42,12 @@ Run Tests
 
 Run the test suite:
 
-.. code-block:: shell
-
+```
     pytest -v
-    
+```   
+
 See the test coverage report through:
 
-.. code-block:: shell
-
+```
     pytest -v --cov=app.color
+```    
