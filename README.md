@@ -15,7 +15,7 @@ Install version using the following commands:
 
 ```
     git clone https://github.com/lcdcustodio/flask_api.git
-    cd flask_api_development
+    cd flask_api
     pip install -r requirements.txt (to get the dependencies)
 ```    
 

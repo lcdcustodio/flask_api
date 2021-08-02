@@ -1,5 +1,4 @@
 from datetime import datetime
-from flask_script import Command
 from flask import json
 from app import db, create_app
 from app.color import Color
