@@ -59,7 +59,20 @@ See the test coverage report through:
 
 ```
     pytest -v --cov=app.color
+    *************************
+    ----------- coverage: platform win32, python 3.9.1-final-0 -----------
+    Name                          Stmts   Miss  Cover
+    -------------------------------------------------
+    src\app\color\__init__.py         6      0   100%
+    src\app\color\controller.py      34      0   100%
+    src\app\color\model.py           14      1    93%
+    src\app\color\schema.py           4      0   100%
+    src\app\color\service.py         81      2    98%
+    -------------------------------------------------
+    TOTAL                           139      3    98%
 ```    
+
+
 2 - Installation (Container approach using podman)
 ===========================
 

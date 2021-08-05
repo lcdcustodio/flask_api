@@ -1,6 +1,6 @@
 from flask import request
 from flask_accepts import accepts, responds
-from flask_restx import Namespace, Resource
+from flask_restx import Namespace, Resource, fields
 from flask.wrappers import Response
 from typing import List
 
@@ -10,25 +10,34 @@ from .model import Color
 
 api = Namespace("Color", description="Get all, a single or insert a new one")
 
+# Model required by flask_restplus for expect
+item = api.model('Color', {
+    'color': fields.String('color name',description='e.g. red'),
+    'value': fields.String('color hex code',description='e.g. #f00'),
+})
 
 @api.route("/")
 class ColorResource(Resource):
     """Colors"""
 
-    @responds(schema=ColorSchema(many=True))
+    @api.response(200, 'Success')
     def get(self) -> List[Color]:
         """Retrieve the whole list of colors"""
 
-        return ColorService.get_all()        
+        resp = ColorService.get_all()             
+        return {'result':resp.get('result'),'success':resp.get('success')},resp.get('code')
 
-    @accepts(schema=ColorSchema, api=api)
+
+    @api.expect(item)
     @api.response(201, 'Created')
     @api.response(409, 'Conflict')
-    @api.doc(description="Must be a valid color name and standard 3 hex digit value")    
+    @api.response(400, 'Bad Request')
+    @api.doc(description="Must be a valid color name and standard hex digit value")    
     def post(self) -> Color:
         """Insert a new color into the list"""
         
-        resp = ColorService.create(request.parsed_obj)        
+              
+        resp = ColorService.create(request.get_json())        
         return {'message':resp.get('message'),'success':resp.get('success')},resp.get('code')
 
 
@@ -43,4 +52,9 @@ class ColorNameResource(Resource):
         """Get Single Color"""
 
         resp = ColorService.find_by_color(color)  
-        return {'result':resp.get('result'),'success':resp.get('success')},resp.get('code')
+        if resp.get('success'):
+            return {'result':resp.get('result'),'success':resp.get('success')},resp.get('code')
+        else:
+            return {'message':resp.get('result'),'success':resp.get('success')},resp.get('code')
+
+

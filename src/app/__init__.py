@@ -18,6 +18,7 @@ def create_app(env=None):
         app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    
 
 
     register_routes(api,app)

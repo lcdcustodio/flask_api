@@ -22,4 +22,5 @@ Werkzeug
 flask-restx
 pytest
 pytest-cov 
-pytest-flask 
+pytest-flask
+colour
