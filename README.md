@@ -53,13 +53,12 @@ Run the test suite:
 
 ```
     pytest -v
+    pytest -v --cov=app.color  #test coverage
 ```   
 
-See the test coverage report through:
+See the test coverage report:
 
 ```
-    pytest -v --cov=app.color
-    *************************
     ----------- coverage: platform win32, python 3.9.1-final-0 -----------
     Name                          Stmts   Miss  Cover
     -------------------------------------------------
