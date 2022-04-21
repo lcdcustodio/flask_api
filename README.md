@@ -83,3 +83,15 @@ Deployment and running in a containerized environment, using podman
     sudo buildah bud -t flask_api .
     sudo podman run --rm -it -p 5000:5000 flask_api
 ``` 
+
+3 - Installation (Container approach using docker)
+===========================
+
+Deployment and running in a containerized environment, using docker
+
+```
+    git clone https://github.com/lcdcustodio/flask_api.git
+    cd flask_api
+    docker build -t flask_api .
+    docker run -p 5000:5000 flask_api
+``` 
